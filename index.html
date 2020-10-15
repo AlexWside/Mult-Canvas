@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #screen{
+            border: 1px gray solid;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            image-rendering: -moz-crisp-edges;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+    <title>tste</title>
+</head>
+<body>
+    <canvas width="10" height="10" id="screen">
+
+    </canvas>
+    <script>
+        const screen = document.getElementById('screen');
+        const context = screen.getContext('2d');
+        
+        const game = {
+            players:{
+                'player1': {x:1, y:1},
+                'player2': {x:9, y: 9}
+            },
+            fruits:{
+                'fruit': {x:3, y: 3}
+            }
+                    }
+
+
+                    renderScreen()
+
+            function renderScreen(){
+                for ( playerId in game.players){
+                    const player = game.players[playerId]
+                    context.fillStyle = 'black'
+                    context.fillRect(player.x,player.y,1,1)
+                    //context.arc(player.x, player.y,20, 0, 2 * Math.PI,false)
+                }
+                for( fruitId in game.fruits){
+                    const fruit = game.fruits[fruitId]
+                    context.fillStyle = 'green'
+                    context.fillRect(fruit.x,fruit.y,1,1)
+                }
+            }
+
+    </script>
+</body>
+</html>
